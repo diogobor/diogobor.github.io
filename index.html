@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diogo Borges Lima</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Diogo Borges Lima - Research Scientist in Computational Proteomics" />
+
+  <!-- Simple, clean styles -->
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --radius-lg: 16px;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 42%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 32px 16px 48px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    header {
+      margin-bottom: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .title-block {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.88rem;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(18px);
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+
+    nav a:hover {
+      background: rgba(30, 64, 175, 0.6);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    nav a:active {
+      transform: translateY(0);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 800px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 20px 18px;
+      margin-bottom: 10px;
+      backdrop-filter: blur(22px);
+    }
+
+    section h2 {
+      font-size: 0.96rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    section h2 span {
+      color: var(--accent);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--accent);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .two-col-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 6px 18px;
+      margin-top: 6px;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    li {
+      font-size: 0.86rem;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    li::before {
+      content: "▹";
+      font-size: 0.72rem;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    a.inline-link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a.inline-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <div class="subtitle">Computational Proteomics</div>
+        <h1>Diogo Borges Lima</h1>
+        <p class="tagline">
+          Research Scientist in computational proteomics, with experience across
+          cross-linking MS, top-down proteomics, and AI-driven data analysis.
+        </p>
+      </div>
+      <nav>
+        <!-- Replace hrefs with your real URLs -->
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <!-- Example external links:
+        <a href="https://scholar.google.com/..." target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/youruser" target="_blank" rel="noopener">GitHub</a>
+        -->
+      </nav>
+    </header>
+
+    <main>
+      <div>
+        <section id="about">
+          <div class="pill">Profile</div>
+          <h2><span>About</span> & background</h2>
+          <p>
+            Holds a Bachelor's degree in Computer Science and an M.Sc. in Computer Science
+            with a focus on Artificial Intelligence from the Federal University of Rio de Janeiro (UFRJ).
+          </p>
+          <p>
+            Completed a Ph.D. in Biosciences and Biotechnology at the Carlos Chagas Institute / Fiocruz,
+            developing the SIM-XL search tool for complex cross-linked peptide datasets in structural proteomics
+            and protein–protein interaction studies.
+          </p>
+          <p class="muted">
+            Postdoctoral work at Institut Pasteur (Paris) focused on bioinformatics solutions for
+            top-down proteomics, followed by research at Leibniz-FMP (Berlin) on cleavable cross-linking
+            MS and fast peptide identification strategies. Currently a Research Scientist in computational
+            proteomics at Exact Sciences.
+          </p>
+        </section>
+
+        <section id="research">
+          <div class="pill">Research</div>
+          <h2><span>Focus</span> areas</h2>
+          <ul>
+            <li>Proteomics data analysis (bottom-up and top-down) and quantitative mass spectrometry.</li>
+            <li>Structural mass spectrometry and cross-linking mass spectrometry, including cleavable reagents.</li>
+            <li>Algorithm development and tooling for faster peptide and proteoform identification.</li>
+          </ul>
+          <div class="badge-row">
+            <span class="badge">Structural proteomics</span>
+            <span class="badge">Cross-linking MS</span>
+            <span class="badge">Top-down proteomics</span>
+            <span class="badge">Protein–protein interactions</span>
+          </div>
+        </section>
+      </div>
+
+      <div>
+        <section id="skills">
+          <div class="pill">Toolkit</div>
+          <h2><span>Skills</span> & methods</h2>
+
+          <p class="muted">Computational & machine learning</p>
+          <ul>
+            <li>Natural / evolutionary optimization: genetic algorithms, particle swarm optimization, ant colony optimization, simulated annealing.</li>
+            <li>Statistical classifiers: support vector machines, Bayesian classifiers, and related models.</li>
+            <li>Artificial neural networks: feed-forward architectures with backpropagation.</li>
+            <li>Statistical inference and experimental data modeling.</li>
+          </ul>
+
+          <p class="muted" style="margin-top:8px;">Programming</p>
+          <div class="two-col-list">
+            <ul>
+              <li>Python (advanced)</li>
+              <li>Java (advanced)</li>
+            </ul>
+            <ul>
+              <li>C# (advanced)</li>
+              <li>C++ (advanced)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="pill">Contact</div>
+          <h2><span>Get</span> in touch</h2>
+          <p>
+            You can reach out for collaboration, consulting, or speaking opportunities
+            in computational proteomics, mass spectrometry data analysis, and scientific software development.
+          </p>
+          <p class="muted">
+            Add your preferred contact details here, for example an email address,
+            institutional profile, or professional networks such as LinkedIn or ORCID.
+          </p>
+          <!-- Example:
+          <p>
+            Email: <a class="inline-link" href="mailto:your.email@domain">your.email@domain</a><br />
+            GitHub: <a class="inline-link" href="https://github.com/youruser">github.com/youruser</a><br />
+            LinkedIn: <a class="inline-link" href="https://www.linkedin.com/in/yourprofile">yourprofile</a>
+          </p>
+          -->
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Diogo Borges Lima · Built with GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
