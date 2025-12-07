@@ -33,11 +33,9 @@
     async function loadPage(page) {
 	    try {
 			alert("https://diogobor.github.io/${page}.html");
-	      	const response = await fetch("https://diogobor.github.io/${page}.html");
-	      	const html = await response.text();
-	      	document.getElementById("main_content").innerHTML = html;
+	      	
 	    } catch (err) {
-	    	document.getElementById("main_content").innerHTML = "<h2>Error</h2><p>Page could not be loaded.</p>";
+	    	alert("Error!!!")
 	    }
 	  }
 
