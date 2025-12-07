@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,8 +5,8 @@
     <title>Diogo Borges Lima</title>
 
     <!-- Framework CSS -->
-    <link rel="stylesheet" href="/screen.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="print.css" type="text/css" media="print">
     <!--[if lt IE 8]><link rel="stylesheet" href="/ie.css" type="text/css" media="screen, projection"><![endif]-->
     
     <script>
@@ -30,6 +29,20 @@
     {
     	window.open("http://jigsaw.w3.org/css-validator/validator?uri=" + document.URL + "&profile=css3svg&usermedium=all&warning=1&vextwarning=#",'_blank');
     }
+    
+    async function loadPage(page) {
+    try {
+      const response = await fetch(`/${page}.html`);
+      const html = await response.text();
+      document.getElementById("content").innerHTML = html;
+    } catch (err) {
+      document.getElementById("content").innerHTML =
+        "<h2>Error</h2><p>Page could not be loaded.</p>";
+    }
+  }
+
+  // Load default page
+  loadPage("home");
 
     </script>
 
@@ -40,33 +53,18 @@
    	  <hr class="space" />
       <h1 class="logo">Diogo <span>Borges Lima</span></h1>
       <div class="nav span-23 prepend-1 large" style="background-image:url(/pic-01.jpg);">
-	  	<ul><li class=""><a href="/">Home</a></li><li class=""><a href="/education">Education</a></li><li class=""><a href="/curriculum_vitae">Curriculum_Vitae</a></li><li class=""><a href="/publications">Publications</a></li><li class=""><a href="/research_interest">Research_Interest</a></li><li class=""><a href="/contact">Contact</a></li></ul>
+      	<ul>
+		  <li><a href="#" onclick="loadPage('home'); return false;">Home</a></li>
+		  <li><a href="#" onclick="loadPage('education'); return false;">Education</a></li>
+  		  <li><a href="#" onclick="loadPage('curriculum_vitae'); return false;">Curriculum_Vitae</a></li>
+		  <li><a href="#" onclick="loadPage('publications'); return false;">Publications</a></li>
+		  <li><a href="#" onclick="loadPage('research_interest'); return false;">Research_Interest</a></li>
+		  <li><a href="#" onclick="loadPage('contact'); return false;">Contact</a></li>		  
+		</ul>
 	  </div>
       <div class="page">
           <hr class="space" />
-	      	<div class="span-14 prepend-1 append-1 textJustify">
-	<h1>Resume</h1>
-<p>I hold a Bachelor's degree in Computer Science from the <a href="https://ufrj.br/en/">Federal University of Rio de Janeiro (UFRJ)</a>, in Brazil, as well as an M.Sc. in Computer Science specialising in Artificial Intelligence from the UFRJ's <a href="https://www.cos.ufrj.br/index.php/en/">Systems Engineering and Computer Science Program</a>. I also have a Ph.D. in Biosciences and Biotechnology from the <a href="http://www.icc.fiocruz.br">Carlos Chagas Institute / Fiocruz</a>, where I developed a search tool called <a href="http://patternlabforproteomics.org/sim-xl">SIM-XL</a> for complex scenarios involving cross-linked peptides, aiding structural proteomics and protein-protein interaction studies.
-During my first post-doc in computational proteomics at <a href="https://research.pasteur.fr/en/team/mass-spectrometry-for-biology/">Institut Pasteur</a> in Paris, I have developed new bioinformatics solutions for analyzing top-down proteomics data. In my second post-doc at the <a href="https://leibniz-fmp.de/research/research-section/structural-biology/fan-liu-structural-interactomics">Leibniz-FMP</a> in Berlin, I focused on not only cross-linking mass spectrometry data analysis using cleavable reagents but also the developments of tools to turn the peptides identification faster.
-Currently, I'm Research Scientist in computational proteomics at <a href="https://www.exactsciences.com/">Exact Sciences</a>.</p>
-<p>I have experience in Proteomics Data Analysis (Bottom-up &amp; Top-down) and Quantitative Mass Spectrometry, Structural Mass Spectrometry, Natural Optimization (e.g., Genetic Algorithms, Particle Swarm Optimization, Ant Colony Optimization, Simulated Annealing), Statistical Classifiers (e.g., Support Vector Machines, Bayesian Classifiers etc.), Artificial Neural Networks (e.g., Feed Forward with back propagation), Statistical Inference and advanced experience in Python, Java, C# and C++.</p>
-
-</div>
-<div class="span-7 append-1 last">
-	<div class="box sidebar textJustify">
-		<h2>Computational Mass Spectrometry Group in Brazil</h2>
-<ul>
-<li>
-<p>I have participated since the beginning of my Ph.D. of the Computational Mass Spectrometry Group in Brazil, which was created in 2012 and finds solutions for Proteomics challenges.</p>
-</li>
-<li>
-<p>Access <a href="http://proteomics.fiocruz.br">Computational Mass Spectrometry Group in Brazil</a> to obtain more information.
-<br/> <img id="logoComputationalMS" src="/logoComputationalMS.png" alt="ComputationalMS logo"></p>
-</li>
-</ul>
-
-	</div>
-</div>
+			<div id="main_content"></div>
 		  <hr class="space" />
       </div>
       <div class="footer">
