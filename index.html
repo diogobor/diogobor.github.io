@@ -32,11 +32,11 @@
     
     async function loadPage(page) {
     try {
-      const response = await fetch(`/${page}.html`);
+      const response = await fetch("/${page}.html");
       const html = await response.text();
-      document.getElementById("content").innerHTML = html;
+      document.getElementById("main_content").innerHTML = html;
     } catch (err) {
-      document.getElementById("content").innerHTML =
+      document.getElementById("main_content").innerHTML =
         "<h2>Error</h2><p>Page could not be loaded.</p>";
     }
   }
