@@ -35,10 +35,25 @@
 	      	const response = await fetch(`https://diogobor.github.io/${page}.html`);
 	      	const html = await response.text();
 	      	document.getElementById("main_content").innerHTML = html;
+
+			// Highlight correct menu item
+    		setActiveMenu(page);
 	    } catch (err) {
 	    	alert("Error!!!")
 	    }
 	  }
+	function setActiveMenu(page) {
+	  // 1. Remove "current" class from all <li>
+	  const items = document.querySelectorAll(".nav ul li");
+	  items.forEach(li => li.classList.remove("current"));
+	
+	  // 2. Find the <a> with the matching loadPage('page')
+	  const link = document.querySelector(`a[onclick="loadPage('${page}'); return false;"]`);
+	
+	  if (link) {
+	    link.parentElement.classList.add("current");
+	  }
+	}
 
   // Load default page
   loadPage("home");
