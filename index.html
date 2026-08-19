@@ -169,14 +169,35 @@ nav.main-nav a.active { color: var(--color-primary); background: var(--color-pri
 
 .hero-visual { position:relative; border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/5; }
 .hero-visual img { width:100%; height:100%; object-fit:cover; }
-.hero-visual::after { content:''; position:absolute; inset:0; background: linear-gradient(200deg, transparent 55%, color-mix(in oklch, var(--color-primary) 65%, black 15%) 100%); opacity:0.55; }
+.hero-visual::after { 
+content:''; 
+position:absolute; 
+inset:0; 
+background: linear-gradient(200deg, transparent 55%, color-mix(in oklch, var(--color-primary) 65%, black 15%) 100%); 
+opacity:0.55; 
+}
+/* Watermark */
+.hero-visual::before {
+  content: "© 2026 Diogo Borges Lima · Munich, Germany";
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.5rem + 1vw, 1rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  pointer-events: none;
+  user-select: none;
+}
 .hero-badge {
   position:absolute; bottom: 1rem; left:1rem; right:1rem; z-index:2;
   background: color-mix(in oklch, var(--color-surface) 88%, transparent); backdrop-filter: blur(8px);
   border-radius: var(--radius-lg); padding: 0.9rem 1.1rem; font-size: 0.85rem; box-shadow: var(--shadow-md);
 }
 .hero-badge strong { display:block; font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.15rem; }
-
 .stat-row { display:grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--color-divider); border-radius: var(--radius-lg); overflow:hidden; margin-top: clamp(2.5rem, 5vw, 3.5rem); border:1px solid var(--color-divider); }
 .stat { background: var(--color-surface); padding: 1.4rem 1.1rem; }
 .stat .num { font-family: var(--font-display); font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem); color: var(--color-primary); }
@@ -388,7 +409,7 @@ footer { border-top:1px solid var(--color-divider); padding-block: 2.5rem; }
         </div>
       </div>
       <div class="reveal in">
-        <div class="hero-visual" style="aspect-ratio: 4/3; margin-bottom: 1.75rem; border-radius: var(--radius-lg); overflow: hidden;">
+        <div class="hero-visual watermark" style="aspect-ratio: 4/3; margin-bottom: 1.75rem; border-radius: var(--radius-lg); overflow: hidden; position: relative;">
           <img src="./main.png" alt="Diogo Borges Lima" style="width:100%; height:100%; object-fit:cover; object-position: center 25%;">
         </div>
         <div class="card skills-card">
@@ -396,8 +417,8 @@ footer { border-top:1px solid var(--color-divider); padding-block: 2.5rem; }
           <div class="tag-list">
             <span class="tag">Bottom-up &amp; Top-down Proteomics</span>
             <span class="tag">Quantitative Mass Spectrometry</span>
-            <span class="tag">Cross-linking MS</span>
-            <span class="tag">Artificial Neural Networks</span>
+            <span class="tag">Structural Biology - XL-MS</span>
+            <span class="tag">Machine Learning</span>
             <span class="tag">Python</span>
             <span class="tag">Java</span>
             <span class="tag">C#</span>
