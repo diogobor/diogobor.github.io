@@ -321,6 +321,11 @@ details.acc .acc-body li::before { content:'•'; position:absolute; left:0; col
   height: auto;
   filter: none;
 }
+.contact-email::after { 
+content:''; 
+position:absolute; 
+inset:0;
+}
 [data-theme="dark"] .contact-email {
   filter: invert(1);
 }
