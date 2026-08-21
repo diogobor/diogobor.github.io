@@ -317,14 +317,16 @@ details.acc .acc-body li::before { content:'•'; position:absolute; left:0; col
 .contact-card { background: var(--color-surface); border:1px solid var(--color-border); border-radius: var(--radius-lg); padding: clamp(1.5rem,3vw,2.25rem); }
 .contact-email {
   display: block;
+  position: relative;
   max-width: 100%;
   height: auto;
   filter: none;
 }
 .contact-email::after { 
-content:''; 
-position:absolute; 
-inset:0;
+  content:''; 
+  position:absolute; 
+  inset:0;
+  z-index: 1; 
 }
 [data-theme="dark"] .contact-email {
   filter: invert(1);
